@@ -1,32 +1,25 @@
-const sendBtn = document.querySelector('.app__dice');
-const sendBtnImg = document.querySelector('.app__dice img');
-const adviceNumber = document.querySelector('.app__title-number');
-const adviceText = document.querySelector('.app__text-advice');
+const numberBtns = document.querySelectorAll('[data-number]');
+const operatorBtns = document.querySelectorAll('[data-operator]');
+const screenOut = document.querySelector('.app__screen-text');
+const themeInp = document.querySelector('#theme');
+const body = document.querySelector('body');
 
-let time = 1000;
+const themes = ['dark-theme', 'light-theme', 'magenta-theme'];
 
-const getAdvice = () => {
-	fetch(`https://api.adviceslip.com/advice`)
-		.then(res => res.json())
-		.then(data => {
-			let adviceData = data.slip;
-			adviceNumber.textContent = adviceData.id;
-			adviceText.textContent = `${adviceData.advice}`;
-		});
+const checkPreferredColorScheme = () => {
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		body.classList.add('dark-theme');
+	} else {
+		body.classList.add('light-theme');
+	}
 };
 
-const handleAnimation = () => {
-	sendBtn.classList.add('shake');
-	sendBtnImg.classList.add('rotate');
-	setTimeout(() => {
-		sendBtn.classList.remove('shake');
-		sendBtnImg.classList.remove('rotate');
-	}, time);
+checkPreferredColorScheme();
+
+const changeTheme = e => {
+	const target = e.target.value;
+	body.classList.remove(...themes);
+	body.classList.add(themes[target - 1]);
 };
 
-sendBtn.addEventListener('click', () => {
-	handleAnimation();
-	setTimeout(() => {
-		getAdvice();
-	}, time);
-});
+themeInp.addEventListener('input', changeTheme);

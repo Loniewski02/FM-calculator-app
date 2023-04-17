@@ -20,6 +20,7 @@ body {
 	font-family: 'League Spartan', sans-serif;
 	background-color: $very-dark-desaturated-blue-main-bg;
 	font-size: 1.6rem;
+	transition: background-color 0.5s ease-in-out;
 }
 
 .app {
@@ -27,6 +28,7 @@ body {
 	padding: 1.9em 1.5em;
 
 	&__nav {
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -45,44 +47,66 @@ body {
 			text-transform: uppercase;
 		}
 
+		&-numbers {
+			position: absolute;
+			top: 0;
+			right: 0;
+			transform: translateY(-120%);
+			display: flex;
+			justify-content: space-around;
+			width: 7.1rem;
+			color: $white;
+			font-size: 1.2rem;
+		}
+
 		&-box {
 			display: flex;
 			align-items: center;
-			gap: 0.3em;
 			padding: 0.3em;
+			max-width: 7.1rem;
 			background-color: $very-dark-desaturated-blue-keypad-bg;
 			border-radius: 1em;
 
-			button {
-				position: relative;
-				width: 1.4rem;
-				height: 1.4rem;
-				background-color: $red;
-				border-radius: 50%;
-				border: none;
+			input[type='range']#theme {
+				-webkit-appearance: none;
+				width: 100%;
+				height: 100%;
+				background: transparent;
+				background-color: none;
 				cursor: pointer;
 
-				&::before {
-					content: '';
-					position: absolute;
-					left: 50%;
-					top: 0;
-					transform: translate(-50%, -150%);
-					font-size: 1rem;
-					color: $white;
-					font-weight: 700;
+				&::-webkit-slider-thumb {
+					-webkit-appearance: none;
+					height: 1.6rem;
+					width: 1.6rem;
+					background: $red;
+					border-radius: 50%;
+					cursor: pointer;
+					transition: background 0.2s;
 				}
 
-				&:nth-child(1)::before {
-					content: '1';
+				&::-moz-range-thumb {
+					height: 1.6rem;
+					width: 1.6rem;
+					background: $red;
+					border-radius: 50%;
+					cursor: pointer;
+					transition: background 0.2s;
 				}
 
-				&:nth-child(2)::before {
-					content: '2';
+				&::-webkit-slider-runnable-track {
+					-webkit-appearance: none;
+					box-shadow: none;
+					border: none;
+					background: transparent;
+					width: auto;
 				}
 
-				&:nth-child(3)::before {
-					content: '3';
+				&::-moz-range-track {
+					box-shadow: none;
+					border: none;
+					background: transparent;
+					width: auto;
 				}
 			}
 		}
@@ -123,6 +147,11 @@ body {
 			border-radius: 5px;
 			box-shadow: 0px -4px 0px 0px $grayish-orange inset;
 			cursor: pointer;
+			transition: background-color 0.2s;
+
+			&:hover {
+				background-color: $graylish-orange-btn-hover;
+			}
 
 			&--del,
 			&--reset {
@@ -239,296 +268,5 @@ body {
 	}
 }
 
-@media (prefers-color-scheme: dark) {
-	.dark-theme {
-		background-color: $very-dark-desaturated-blue-main-bg;
-
-		.app {
-			&__nav {
-				&-title {
-					color: $white;
-				}
-
-				&-text {
-					color: $white;
-				}
-
-				&-box {
-					background-color: $very-dark-desaturated-blue-keypad-bg;
-
-					button {
-						background-color: $red;
-
-						&::before {
-							color: $white;
-						}
-					}
-				}
-			}
-
-			&__screen {
-				background-color: $very-dark-desaturated-blue-screen-bg;
-				&-text {
-					color: $white;
-				}
-			}
-
-			&__main {
-				background-color: $very-dark-desaturated-blue-keypad-bg;
-
-				&-btn {
-					color: $very-dark-grayish-blue;
-					background-color: $light-grayish-orange;
-					box-shadow: 0px -4px 0px 0px $grayish-orange inset;
-
-					&--del,
-					&--reset {
-						color: $white;
-						background-color: $desaturated-dark-blue-key-bg;
-						box-shadow: 0px -4px 0px 0px $desaturated-dark-blue-key-shadow inset;
-					}
-
-					&--equals {
-						color: $white;
-						background-color: $red;
-						box-shadow: 0px -4px 0px 0px $dark-red inset;
-					}
-				}
-			}
-		}
-	}
-}
-
-@media (prefers-color-scheme: light) {
-	.light-theme {
-		background-color: $light-gray;
-
-		.app {
-			&__nav {
-				&-title {
-					color: $very-dark-grayish-yellow;
-				}
-
-				&-text {
-					color: $very-dark-grayish-yellow;
-				}
-
-				&-box {
-					background-color: $grayish-red;
-
-					button {
-						background-color: $orange;
-
-						&::before {
-							color: $very-dark-grayish-yellow;
-						}
-					}
-				}
-			}
-
-			&__screen {
-				background-color: $very-light-gray;
-				&-text {
-					color: $very-dark-grayish-yellow;
-				}
-			}
-
-			&__main {
-				background-color: $grayish-red;
-
-				&-btn {
-					color: $very-dark-grayish-yellow;
-					background-color: $light-grayish-yellow;
-					box-shadow: 0px -4px 0px 0px $grayish-orange inset;
-
-					&--del,
-					&--reset {
-						color: $white;
-						background-color: $dark-moderate-cyan;
-						box-shadow: 0px -4px 0px 0px $very-dark-cyan inset;
-					}
-
-					&--equals {
-						color: $white;
-						background-color: $orange;
-						box-shadow: 0px -4px 0px 0px $dark-orange inset;
-					}
-				}
-			}
-		}
-	}
-}
-
-.dark-theme {
-	background-color: $very-dark-desaturated-blue-main-bg;
-
-	.app {
-		&__nav {
-			&-title {
-				color: $white;
-			}
-
-			&-text {
-				color: $white;
-			}
-
-			&-box {
-				background-color: $very-dark-desaturated-blue-keypad-bg;
-
-				button {
-					background-color: $red;
-
-					&::before {
-						color: $white;
-					}
-				}
-			}
-		}
-
-		&__screen {
-			background-color: $very-dark-desaturated-blue-screen-bg;
-			&-text {
-				color: $white;
-			}
-		}
-
-		&__main {
-			background-color: $very-dark-desaturated-blue-keypad-bg;
-
-			&-btn {
-				color: $very-dark-grayish-blue;
-				background-color: $light-grayish-orange;
-				box-shadow: 0px -4px 0px 0px $grayish-orange inset;
-
-				&--del,
-				&--reset {
-					color: $white;
-					background-color: $desaturated-dark-blue-key-bg;
-					box-shadow: 0px -4px 0px 0px $desaturated-dark-blue-key-shadow inset;
-				}
-
-				&--equals {
-					color: $white;
-					background-color: $red;
-					box-shadow: 0px -4px 0px 0px $dark-red inset;
-				}
-			}
-		}
-	}
-}
-
-.light-theme {
-	background-color: $light-gray;
-
-	.app {
-		&__nav {
-			&-title {
-				color: $very-dark-grayish-yellow;
-			}
-
-			&-text {
-				color: $very-dark-grayish-yellow;
-			}
-
-			&-box {
-				background-color: $grayish-red;
-
-				button {
-					background-color: $orange;
-
-					&::before {
-						color: $very-dark-grayish-yellow;
-					}
-				}
-			}
-		}
-
-		&__screen {
-			background-color: $very-light-gray;
-			&-text {
-				color: $very-dark-grayish-yellow;
-			}
-		}
-
-		&__main {
-			background-color: $grayish-red;
-
-			&-btn {
-				color: $very-dark-grayish-yellow;
-				background-color: $light-grayish-yellow;
-				box-shadow: 0px -4px 0px 0px $grayish-orange inset;
-
-				&--del,
-				&--reset {
-					color: $white;
-					background-color: $dark-moderate-cyan;
-					box-shadow: 0px -4px 0px 0px $very-dark-cyan inset;
-				}
-
-				&--equals {
-					color: $white;
-					background-color: $orange;
-					box-shadow: 0px -4px 0px 0px $dark-orange inset;
-				}
-			}
-		}
-	}
-}
-
-.magenta-theme {
-	background-color: $very-dark-violet-main-bg;
-
-	.app {
-		&__nav {
-			&-title {
-				color: $light-yellow;
-			}
-
-			&-text {
-				color: $light-yellow;
-			}
-
-			&-box {
-				background-color: $very-dark-violet-screen-bg;
-
-				button {
-					background-color: $pure-cyan;
-
-					&::before {
-						color: $light-yellow;
-					}
-				}
-			}
-		}
-
-		&__screen {
-			background-color: $very-dark-violet-screen-bg;
-			&-text {
-				color: $light-yellow;
-			}
-		}
-
-		&__main {
-			background-color: $very-dark-violet-screen-bg;
-
-			&-btn {
-				color: $light-yellow;
-				background-color: $very-dark-violet;
-				box-shadow: 0px -4px 0px 0px $dark-magenta inset;
-
-				&--del,
-				&--reset {
-					color: $white;
-					background-color: $dark-violet;
-					box-shadow: 0px -4px 0px 0px $vivid-magenta inset;
-				}
-
-				&--equals {
-					color: $very-dark-blue;
-					background-color: $pure-cyan;
-					box-shadow: 0px -4px 0px 0px $soft-cyan inset;
-				}
-			}
-		}
-	}
-}
+@import './prefers-color-scheme';
+@import './themes';

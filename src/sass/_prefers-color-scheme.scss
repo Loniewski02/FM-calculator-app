@@ -1,0 +1,169 @@
+@media (prefers-color-scheme: dark) {
+	.dark-theme {
+		background-color: $very-dark-desaturated-blue-main-bg;
+
+		.app {
+			&__nav {
+				&-title {
+					color: $white;
+				}
+
+				&-text {
+					color: $white;
+				}
+
+				&-numbers {
+					color: $white;
+				}
+
+				&-box {
+					background-color: $very-dark-desaturated-blue-keypad-bg;
+
+					input[type='range']#theme {
+						&::-webkit-slider-thumb {
+							background: $red;
+							&:hover {
+								background: $red-btn-hover;
+							}
+						}
+
+						&::-moz-range-thumb {
+							background: $red;
+							&:hover {
+								background: $red-btn-hover;
+							}
+						}
+					}
+				}
+			}
+
+			&__screen {
+				background-color: $very-dark-desaturated-blue-screen-bg;
+				&-text {
+					color: $white;
+				}
+			}
+
+			&__main {
+				background-color: $very-dark-desaturated-blue-keypad-bg;
+
+				&-btn {
+					color: $very-dark-grayish-blue;
+					background-color: $light-grayish-orange;
+					box-shadow: 0px -4px 0px 0px $grayish-orange inset;
+
+					&:hover {
+						background-color: $graylish-orange-btn-hover;
+					}
+
+					&--del,
+					&--reset {
+						color: $white;
+						background-color: $desaturated-dark-blue-key-bg;
+						box-shadow: 0px -4px 0px 0px $desaturated-dark-blue-key-shadow inset;
+
+						&:hover {
+							background-color: $desaturated-dark-blue-key-hover;
+						}
+					}
+
+					&--equals {
+						color: $white;
+						background-color: $red;
+						box-shadow: 0px -4px 0px 0px $dark-red inset;
+
+						&:hover {
+							background-color: $red-btn-hover;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.light-theme {
+		background-color: $light-gray;
+
+		.app {
+			&__nav {
+				&-title {
+					color: $very-dark-grayish-yellow;
+				}
+
+				&-text {
+					color: $very-dark-grayish-yellow;
+				}
+
+				&-numbers {
+					color: $very-dark-grayish-yellow;
+				}
+
+				&-box {
+					background-color: $grayish-red;
+
+					input[type='range']#theme {
+						&::-webkit-slider-thumb {
+							background: $orange;
+
+							&:hover {
+								background: $orange-hover;
+							}
+						}
+
+						&::-moz-range-thumb {
+							background: $orange;
+
+							&:hover {
+								background: $orange-hover;
+							}
+						}
+					}
+				}
+			}
+
+			&__screen {
+				background-color: $very-light-gray;
+				&-text {
+					color: $very-dark-grayish-yellow;
+				}
+			}
+
+			&__main {
+				background-color: $grayish-red;
+
+				&-btn {
+					color: $very-dark-grayish-yellow;
+					background-color: $light-grayish-yellow;
+					box-shadow: 0px -4px 0px 0px $grayish-orange inset;
+
+					&:hover {
+						background-color: $white;
+					}
+
+					&--del,
+					&--reset {
+						color: $white;
+						background-color: $dark-moderate-cyan;
+						box-shadow: 0px -4px 0px 0px $very-dark-cyan inset;
+
+						&:hover {
+							background-color: $dark-cyan-hover;
+						}
+					}
+
+					&--equals {
+						color: $white;
+						background-color: $orange;
+						box-shadow: 0px -4px 0px 0px $dark-orange inset;
+
+						&:hover {
+							background-color: $orange-hover;
+						}
+					}
+				}
+			}
+		}
+	}
+}
