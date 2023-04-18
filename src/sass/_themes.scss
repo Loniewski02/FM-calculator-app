@@ -40,7 +40,7 @@
 
 		&__screen {
 			background-color: $very-dark-desaturated-blue-screen-bg;
-			&-text {
+			&-currentNumber {
 				color: $white;
 			}
 		}
@@ -124,7 +124,7 @@
 
 		&__screen {
 			background-color: $very-light-gray;
-			&-text {
+			&-currentNumber {
 				color: $very-dark-grayish-yellow;
 			}
 		}
@@ -208,7 +208,7 @@
 
 		&__screen {
 			background-color: $very-dark-violet-screen-bg;
-			&-text {
+			&-currentNumber {
 				color: $light-yellow;
 			}
 		}

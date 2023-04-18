@@ -113,16 +113,21 @@ body {
 	}
 
 	&__screen {
-		padding: 1.8em 1.5em 1.4em;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		justify-content: space-between;
+		margin-bottom: 1.5em;
+		padding: 1em 1.5em;
 		height: 7rem;
 		border-radius: 10px;
 		background-color: $very-dark-desaturated-blue-screen-bg;
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		margin-bottom: 1.5em;
 
-		&-text {
+		&-previousNumber {
+			color: $desaturated-dark-blue-key-bg;
+		}
+
+		&-currentNumber {
 			font-size: 3rem;
 			color: $white;
 		}
@@ -206,7 +211,7 @@ body {
 		&__screen {
 			height: 8.8rem;
 
-			&-text {
+			&-currentNumber {
 				font-size: 4rem;
 			}
 		}
@@ -234,15 +239,15 @@ body {
 
 		&__nav {
 			&-text {
-				margin-right: -24em;
+				margin-right: -28em;
 			}
 		}
 
 		&__screen {
-			padding: 2.5em 2em 2.2em;
+			padding: 1.5em 2em;
 			height: 12.8rem;
 
-			&-text {
+			&-currentNumber {
 				font-size: 5.6rem;
 			}
 		}
