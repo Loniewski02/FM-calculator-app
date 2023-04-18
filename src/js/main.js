@@ -11,6 +11,7 @@ const body = document.querySelector('body');
 const themes = ['dark-theme', 'light-theme', 'magenta-theme'];
 let result = 0;
 let mathSign;
+let tempNumber;
 
 const checkPreferredColorScheme = () => {
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -33,35 +34,43 @@ const changeTheme = e => {
 const handleNumbers = e => {
 	let number = e.target.textContent;
 	if (number === '.' && currentNumber.textContent.includes('.')) return;
-
-	if (number === '0' && currentNumber.textContent === '') return (currentNumber.textContent = '.0');
-
+	if (number === '0' && currentNumber.textContent == '') return (currentNumber.textContent = '.0');
+	if (number === '-' && currentNumber.textContent.includes('-')) return;
 	currentNumber.textContent += number;
 };
 
-const operate = e => {
+const handleOperator = e => {
 	let operator = e.target.textContent;
-	mathSign = operator;
 
-	if (currentNumber.textContent === '' && operator === '-') {
+	if (operator === '-' && currentNumber.textContent === '') {
 		currentNumber.textContent = '-';
 		return;
+	} else if (currentNumber.textContent === '' || currentNumber.textContent === '-') {
+		return;
 	} else if (currentNumber.textContent === '') {
+		if (tempNumber && operator !== '-') {
+			mathSign = operator;
+			prevNumber.textContent = `${tempNumber} ${mathSign}`;
+		}
 		return;
 	}
 
-	if (currentNumber.textContent !== '' && !currentNumber.textContent.includes(operator)) {
-		prevNumber.textContent = currentNumber.textContent + ' ' + operator;
-		currentNumber.textContent = '';
+	if (mathSign && currentNumber.textContent !== '') {
+		calculate();
+		tempNumber = currentNumber.textContent;
+	} else {
+		tempNumber = currentNumber.textContent || tempNumber;
 	}
+
+	mathSign = operator;
+	prevNumber.textContent = `${tempNumber} ${mathSign}`;
+	currentNumber.textContent = '';
 };
 
 const calculate = () => {
 	if (prevNumber.textContent === '' || currentNumber.textContent === '') return;
-
 	let a = Number(currentNumber.textContent);
 	let b = Number(prevNumber.textContent.slice(0, -1));
-
 	switch (mathSign) {
 		case '+':
 			result = a + b;
@@ -76,7 +85,6 @@ const calculate = () => {
 			result = a * b;
 			break;
 	}
-
 	currentNumber.textContent = result;
 	prevNumber.textContent = '';
 };
@@ -91,7 +99,7 @@ const deleteLast = () => {
 	currentNumber.textContent = currentNumber.textContent.slice(0, -1);
 };
 
-operatorBtns.forEach(btn => btn.addEventListener('click', operate));
+operatorBtns.forEach(btn => btn.addEventListener('click', handleOperator));
 numberBtns.forEach(btn => btn.addEventListener('click', handleNumbers));
 equalsBtn.addEventListener('click', calculate);
 resetBtn.addEventListener('click', resetApp);

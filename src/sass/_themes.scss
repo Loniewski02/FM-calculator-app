@@ -19,6 +19,10 @@
 				background-color: $very-dark-desaturated-blue-keypad-bg;
 
 				input[type='range']#theme {
+					&:focus::after {
+						border: 2px solid $red;
+					}
+
 					&::-webkit-slider-thumb {
 						background: $red;
 
@@ -53,7 +57,8 @@
 				background-color: $light-grayish-orange;
 				box-shadow: 0px -4px 0px 0px $grayish-orange inset;
 
-				&:hover {
+				&:hover,
+				&:focus {
 					background-color: $graylish-orange-btn-hover;
 				}
 
@@ -63,7 +68,8 @@
 					background-color: $desaturated-dark-blue-key-bg;
 					box-shadow: 0px -4px 0px 0px $desaturated-dark-blue-key-shadow inset;
 
-					&:hover {
+					&:hover,
+					&:focus {
 						background-color: $desaturated-dark-blue-key-hover;
 					}
 				}
@@ -73,7 +79,8 @@
 					background-color: $red;
 					box-shadow: 0px -4px 0px 0px $dark-red inset;
 
-					&:hover {
+					&:hover,
+					&:focus {
 						background-color: $red-btn-hover;
 					}
 				}
@@ -103,6 +110,10 @@
 				background-color: $grayish-red;
 
 				input[type='range']#theme {
+					&:focus::after {
+						border: 2px solid $orange;
+					}
+
 					&::-webkit-slider-thumb {
 						background: $orange;
 
@@ -137,7 +148,8 @@
 				background-color: $light-grayish-yellow;
 				box-shadow: 0px -4px 0px 0px $grayish-orange inset;
 
-				&:hover {
+				&:hover,
+				&:focus {
 					background-color: $white;
 				}
 
@@ -147,7 +159,8 @@
 					background-color: $dark-moderate-cyan;
 					box-shadow: 0px -4px 0px 0px $very-dark-cyan inset;
 
-					&:hover {
+					&:hover,
+					&:focus {
 						background-color: $dark-cyan-hover;
 					}
 				}
@@ -157,7 +170,8 @@
 					background-color: $orange;
 					box-shadow: 0px -4px 0px 0px $dark-orange inset;
 
-					&:hover {
+					&:hover,
+					&:focus {
 						background-color: $orange-hover;
 					}
 				}
@@ -187,6 +201,10 @@
 				background-color: $very-dark-violet-screen-bg;
 
 				input[type='range']#theme {
+					&:focus::after {
+						border: 2px solid $pure-cyan;
+					}
+
 					&::-webkit-slider-thumb {
 						background: $pure-cyan;
 
@@ -221,7 +239,8 @@
 				background-color: $very-dark-violet;
 				box-shadow: 0px -4px 0px 0px $dark-magenta inset;
 
-				&:hover {
+				&:hover,
+				&:focus {
 					background-color: $dark-violet-hover;
 				}
 
@@ -231,7 +250,8 @@
 					background-color: $dark-violet;
 					box-shadow: 0px -4px 0px 0px $vivid-magenta inset;
 
-					&:hover {
+					&:hover,
+					&:focus {
 						background-color: $very-dark-violet-hover;
 					}
 				}
@@ -241,7 +261,8 @@
 					background-color: $pure-cyan;
 					box-shadow: 0px -4px 0px 0px $soft-cyan inset;
 
-					&:hover {
+					&:hover,
+					&:focus {
 						background-color: $soft-cyan-hover;
 					}
 				}
