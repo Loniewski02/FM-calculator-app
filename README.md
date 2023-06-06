@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: https://github.com/Loniewski02/FM-calculator-app
-- Live Site URL: https://loniewski02.github.io/FM-calculator-app/
+- Solution URL: [solution](https://www.frontendmentor.io/solutions/calculator-app-MKeDueP70E)
+- Live Site URL: [live](https://loniewski02.github.io/FM-calculator-app/)
 
 ## My process
 
